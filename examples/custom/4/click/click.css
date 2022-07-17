@@ -1,0 +1,11 @@
+span {
+    font-family: monospace;
+    border-radius: 0.2em;
+    background: white;
+    color: #7700cc;
+}
+
+span.active {
+    color: white;
+    background: #7700cc;
+}
