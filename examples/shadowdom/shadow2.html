@@ -1,11 +1,15 @@
 <!doctype html>
 <title>Shadow DOM Example 2</title>
+
+<style>
+  p { color: green; }
+</style>
+
 <h1>Shadow DOM Example 2</h1>
 
 <button id="b1">GO!</button>
 
 <main>
-
   <section id="example">
     <p>This text will be replaced.</p>
     <p>This will also change.</p>
@@ -15,11 +19,9 @@
     <p>This text will remain.</p>
     <p>No change here.</p>
   </section>
-
 </main>
 
 <script>
-
   const b1 = document.querySelector("#b1");
   const ex = document.querySelector("#example");
   const opts = { mode: "closed" };
