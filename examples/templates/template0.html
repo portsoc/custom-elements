@@ -1,0 +1,26 @@
+<!doctype html>
+<title>Template Example 0</title>
+<h1>Template Example 0</h1>
+
+<p>In this example, a single HTML template <code>t1</code> is defined, but it's not <em>used</em> immediately.</p>
+<p>The script gets a handle on the template and <em>clones</em> it.</p>
+
+<p>The content of the original template and its clone (which are both <a href=https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment>DocumentFragment</a>s) can be inspected in the console and seen to be the same in structure, indicating that the cloning process has worked.</p>
+
+<p>The cloned node can be manually edited:</p>
+<pre>cloned.firstElementChild.textContent='This text was added.';</pre>
+
+<p>In the console, inspect <code>cloned</code> and <code>t1</code> to see how they now differ, then add them to the document:</p>
+<pre>document.body.append(cloned);</pre>
+
+
+<template id=t1>
+  <p>This text is never seen.</p>
+  <p>DocumentFragments can include multiple elements.</p>
+</template>
+
+<script>
+  const t1 = document.querySelector("#t1");
+  const cloned = t1.content.cloneNode(true);
+  console.log({cloned, original: t1.content});
+</script>
