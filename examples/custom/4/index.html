@@ -1,7 +1,8 @@
 <!doctype html>
 <title>Custom Element Example 4</title>
-<script type=module src="click/click.js"></script>
+<script type=module src="clock/clock.js"></script>
 
 <h1>Custom Element Example 4</h1>
 
-<p>This <clickable-span>clickable span</clickable-span> custom element is clickable.  When clicked a different style is applied and thus the appearance changes.</p>
+<p>This sentence includes (right here: <my-clock></my-clock>) a live and working clock that is completely encapsulated within a web component.  The web component is defined in a separate file that can be included in any page.  The clock appears red because it has it's own stylesheet that is defined as part of the component.</p>
+<p>This second clocks has seconds too... <my-clock seconds />)
