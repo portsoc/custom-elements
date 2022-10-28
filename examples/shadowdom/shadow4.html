@@ -5,22 +5,35 @@
 <main>
 
   <section id="example1">
+    <p>To this section, an open Shadow DOM will be attached.
   </section>
 
   <section id="example2">
-  </section>
+    <p>To this section, an closed Shadow DOM will be attached.
+    </section>
 
 </main>
 
 <script>
 
+  // When this function ends the 'internal' handles on
+  // the two Shadow DOMs are lost.  This simulates how we
+  // might not have access to Shadow DOM created by third
+  // party code.
+  function prepareShadow() {
+    const open = ex1.attachShadow({ mode: "open" });
+    const closed = ex2.attachShadow({ mode: "closed" });
+
+    open.innerHTML = "<p>Open Shadow DOM, can be updated externally.</p>"
+    closed.innerHTML = "<p>Closed Shadow DOM, cannot be updated externally.</p>"
+  }
+
   const ex1 = document.querySelector("#example1");
   const ex2 = document.querySelector("#example2");
 
-  const open = ex1.attachShadow({ mode: "open" });
-  const closed = ex2.attachShadow({ mode: "closed" });
+  // prepareShadow();
 
-  ex1.shadowRoot.innerHTML = "<p>hello ex1</p>";
-  ex2.shadowRoot.innerHTML = "<p>hello ex2</p>";
+  ex1.shadowRoot.innerHTML += "<p>This is added to the open Shadow  DOM.</p>";
+  ex2.shadowRoot.innerHTML += "<p>This update won't happen.</p>";
 
 </script>

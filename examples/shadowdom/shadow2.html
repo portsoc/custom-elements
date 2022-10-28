@@ -2,13 +2,12 @@
 <title>Shadow DOM Example 2</title>
 
 <style>
-  p { color: green; }
+  section   { padding: 0.25rem 1rem; background: #AACCFF; }
+  section p { padding: 0.25rem 1rem; background: #FFDDBB; }
 </style>
 
 <h1>Shadow DOM Example 2</h1>
-
 <button id="b1">GO!</button>
-
 <main>
   <section id="example">
     <p>This text will be replaced.</p>
@@ -29,7 +28,7 @@
   b1.addEventListener("click", () => {
     const shadow = ex.attachShadow(opts);
     shadow.innerHTML = `
-      <style>p { color: red; };</style>
+      <style>p { font-weight: bold; color: red; };</style>
       <p>I part of a shadow DOM.</p>
       <p>My style does not affect the rest of the document</p>`;
   });
