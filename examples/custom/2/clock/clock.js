@@ -1,4 +1,4 @@
-export class Clock extends HTMLElement {
+class Clock extends HTMLElement {
   constructor() {
     super();
 
