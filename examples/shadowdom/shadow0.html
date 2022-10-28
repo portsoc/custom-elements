@@ -1,0 +1,42 @@
+<!doctype html>
+<title>Shadow DOM Example 0</title>
+<h1>Shadow DOM Example 0</h1>
+
+<style>
+  section   { padding: 0.25rem 1rem; background: #AACCFF; }
+  section p { padding: 0.25rem 1rem; background: #FFDDBB; }
+</style>
+
+<main>
+
+  <section>
+    <p>The section below is connected to a Shadow DOM.</p>
+    <p>It contains paragraphs.</p>
+    <p>Those paragraphs are not styled the same the paragraphs in this section.</p>
+    <p>Those paragraphs cannot be selected via <code>document.querySelector</code>.</p>
+    <p>Shadow DOM can help encapsulate and modularize HTML.</p>
+  </section>
+
+  <section id="example">
+    <p>Hello Mum!</p>
+  </section>
+
+</main>
+
+<script>
+
+  const ex = document.querySelector("#example");
+  const opts = { mode: "closed" };
+
+  const shadow = ex.attachShadow(opts);
+
+  shadow.innerHTML = `
+    <p>I am part of a shadow DOM.</p>
+    <p>Inspect me to see my closed shadow-root.`;
+
+  // List the contents of all paras in the doc.
+  // Those in Shadow DOM will not be present.
+  const paras = [...document.querySelectorAll('p')];
+  paras.map( p => console.log(p.textContent));
+
+</script>
