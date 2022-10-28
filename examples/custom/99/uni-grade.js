@@ -37,8 +37,8 @@ class UniGrade extends HTMLElement {
     t.setAttributeNS(null, 'text-anchor', 'middle');
     t.setAttributeNS(null, 'alignment-baseline', 'central');
 
-    t.appendChild(document.createTextNode(txt));
-    this.svg.appendChild(t);
+    t.append(document.createTextNode(txt));
+    this.svg.append(t);
     return t;
   }
 
@@ -50,7 +50,7 @@ class UniGrade extends HTMLElement {
     l.setAttribute('y2', y2);
     l.setAttribute('stroke', col);
     l.setAttribute('stroke-width', width);
-    this.svg.appendChild(l);
+    this.svg.append(l);
   }
 
   circ(cx, cy, r, fill = 'black', stroke = 'none', width = 2) {
@@ -61,7 +61,7 @@ class UniGrade extends HTMLElement {
     c.setAttributeNS(null, 'fill', fill);
     c.setAttributeNS(null, 'stroke', stroke);
     c.setAttributeNS(null, 'stroke-width', width);
-    this.svg.appendChild(c);
+    this.svg.append(c);
   }
 
   marker(x, txt) {
@@ -82,7 +82,7 @@ class UniGrade extends HTMLElement {
       while (this.gradeText.firstChild) {
         this.gradeText.firstChild.remove();
       }
-      this.gradeText.appendChild(document.createTextNode(this.value));
+      this.gradeText.append(document.createTextNode(this.value));
     }
   }
 
@@ -94,7 +94,7 @@ class UniGrade extends HTMLElement {
       'http://www.w3.org/2000/svg',
       'g'
     );
-    this.svg.appendChild(this.gradeGroup);
+    this.svg.append(this.gradeGroup);
 
     const q = this.y.step * 8;
     const mh = this.y.step * 10;
@@ -119,14 +119,14 @@ class UniGrade extends HTMLElement {
     `
     );
     gp.setAttributeNS(null, 'class', 'marker');
-    this.gradeGroup.appendChild(gp);
+    this.gradeGroup.append(gp);
 
     const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     c.setAttributeNS(null, 'cx', 0);
     c.setAttributeNS(null, 'cy', mh);
     c.setAttributeNS(null, 'r', 5);
     c.setAttributeNS(null, 'class', 'marker');
-    this.gradeGroup.appendChild(c);
+    this.gradeGroup.append(c);
 
     // text
     this.gradeText = document.createElementNS(
@@ -140,7 +140,7 @@ class UniGrade extends HTMLElement {
     this.gradeText.setAttributeNS(null, 'text-anchor', 'middle');
     this.gradeText.setAttributeNS(null, 'font-weight', 'bold');
     this.gradeText.setAttributeNS(null, 'font-size', `${this.y.step * 35}px`);
-    this.gradeGroup.appendChild(this.gradeText);
+    this.gradeGroup.append(this.gradeText);
 
     this.repositionGrade();
   }
@@ -155,7 +155,7 @@ class UniGrade extends HTMLElement {
       'xmlns:xlink',
       'http://www.w3.org/1999/xlink'
     );
-    this.shadow.appendChild(this.svg);
+    this.shadow.append(this.svg);
 
     // this.svg.addEventListener('click', e => {
     //   let val = (e.offsetX - this.x.padding) / this.x.step;

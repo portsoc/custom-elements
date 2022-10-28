@@ -1,23 +1,25 @@
 <!doctype html>
 <title>Template Example 1</title>
+<h1>Template Example 1</h1>
+
+<p>In this example we automate what we previously saw.  The template again contains, multiple elements (in <code>t1</code>) that are cloned together as a <em>DocumentFragment</em>, and that fragment (which event includes the whitespace around the element) is added to the document each time the button is clicked.</p>
 
 <button id=b1>GO!</button>
 
-<main></main>
-
 <template id=t1>
   <p>Templates are easy to use.</p>
+  <p>This template contains several elements (including nested ones).</p>
+  <p>Together they are called a <em>DocumentFragment</em>.</p>
 </template>
 
 <script>
 
   const b1 = document.querySelector("#b1");
   const t1 = document.querySelector("#t1");
-  const main = document.querySelector("main");
 
-  b1.addEventListener("click", (e) => {
+  b1.addEventListener("click", e => {
     const cloned = t1.content.cloneNode(true);
-    main.appendChild(cloned);
+    document.body.append(cloned);
   });
 
 </script>

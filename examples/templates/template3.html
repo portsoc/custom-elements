@@ -7,7 +7,7 @@
 <main></main>
 
 <template id=t1>
-  <p>Templates are easy to use.</p>
+  <p>Templates are <em>easy</em> to use.</p>
 </template>
 
 <template id=t2>
@@ -22,15 +22,15 @@
   const t2 = document.querySelector("#t2");
   const main = document.querySelector("main");
 
-  b1.addEventListener("click", (e) => {
+  b1.addEventListener("click", e => {
     const cloned = t1.content.cloneNode(true);
-    main.appendChild(cloned);
+    main.append(cloned);
   });
 
-  b2.addEventListener("click", (e) => {
-    const cloned = t2.content.cloneNode(true);
+  b2.addEventListener("click", e => {
+    const cloned = t1.content.cloneNode(true);
     const updateThis = cloned.querySelector("em");
     updateThis.textContent = new Date().toLocaleTimeString();
-    main.appendChild(cloned);
+    main.append(cloned);
   })
 </script>
