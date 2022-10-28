@@ -1,0 +1,17 @@
+<!doctype html>
+<title>Custom Element Example 0</title>
+
+<script>
+  class Time extends HTMLElement {
+    constructor() {
+      super();
+      const shadow = this.attachShadow({ mode: 'closed' });
+      shadow.textContent = new Date().toLocaleTimeString();
+    }
+  }
+  customElements.define('my-time', Time);
+</script>
+
+<h1>Custom Element Example 0</h1>
+
+<p>This page was loaded at <my-time></my-time>.
