@@ -71,13 +71,13 @@ class UniGrade extends HTMLElement {
 
   repositionGrade() {
     if (this.gradeGroup) {
-      let v = this.value == 'undefined' ? -99 : this.value;
+      const v = this.value === 'undefined' ? -99 : this.value;
       const gx = v * this.x.step + this.x.padding;
       const gy = this.y.markerheight;
       this.gradeGroup.setAttributeNS(
         null,
         'transform',
-        `translate(${gx} ${gy})`
+        `translate(${gx} ${gy})`,
       );
       while (this.gradeText.firstChild) {
         this.gradeText.firstChild.remove();
@@ -92,7 +92,7 @@ class UniGrade extends HTMLElement {
     /// group
     this.gradeGroup = document.createElementNS(
       'http://www.w3.org/2000/svg',
-      'g'
+      'g',
     );
     this.svg.append(this.gradeGroup);
 
@@ -116,7 +116,7 @@ class UniGrade extends HTMLElement {
     L ${q * 4},-${q * 4}
     C ${q * 4},-${q * 3} ${q * 3},-${q * 2} ${q * 2},-${q * 2}
     C ${q},-${q * 2} 0,-${q} 0,0
-    `
+    `,
     );
     gp.setAttributeNS(null, 'class', 'marker');
     this.gradeGroup.append(gp);
@@ -131,7 +131,7 @@ class UniGrade extends HTMLElement {
     // text
     this.gradeText = document.createElementNS(
       'http://www.w3.org/2000/svg',
-      'text'
+      'text',
     );
     this.gradeText.setAttributeNS(null, 'x', 0);
     this.gradeText.setAttributeNS(null, 'y', -q * 6);
@@ -153,7 +153,7 @@ class UniGrade extends HTMLElement {
     this.svg.setAttributeNS(
       'http://www.w3.org/2000/xmlns/',
       'xmlns:xlink',
-      'http://www.w3.org/1999/xlink'
+      'http://www.w3.org/1999/xlink',
     );
     this.shadow.append(this.svg);
 
@@ -174,14 +174,14 @@ class UniGrade extends HTMLElement {
   }
 
   drawTitle() {
-    if (this.title != 'false') {
+    if (this.title !== 'false') {
       this.text(10, 20, this.title);
     }
   }
 
   connectedCallback() {
     ['title', 'value', 'avg'].forEach(
-      a => (this[a] = this.getAttribute(a) || false)
+      a => (this[a] = this.getAttribute(a) || false),
     );
 
     this.shadow = this.attachShadow({ mode: 'closed' });
@@ -197,7 +197,7 @@ class UniGrade extends HTMLElement {
     this.shadow.innerHTML = `
       <style>
       :host {
-        display: block;
+        display: inline-block;
         width: 100%;
       }
       svg {
