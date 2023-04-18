@@ -1,32 +1,29 @@
-export class Clock extends HTMLElement {
-
+export class DigitalClock extends HTMLElement {
   constructor() {
     super();
+    const shadow = this.attachShadow({ mode: 'closed' });
+
+    const style = document.createElement('link');
+    style.setAttribute('rel', 'stylesheet');
+    style.setAttribute('href', import.meta.resolve('./clock.css'));
+    shadow.append(style);
+
+    this.span = document.createElement('span');
+    this.span.textContent = '00:00:00';
+    shadow.append(this.span);
+  }
+
+  update() {
+    this.span.textContent = new Date().toLocaleTimeString();
   }
 
   connectedCallback() {
-    const shadow = this.attachShadow({ mode: 'closed' });
-
-    const e = document.createElement('link');
-    e.setAttribute('rel', 'stylesheet');
-    e.setAttribute('type', 'text/css');
-    e.setAttribute('href', 'clock/clock.css');
-
-    const p = document.createElement('span');
-
-    shadow.append(e, p);
-
-    window.setInterval(() => {
-      let timeNow = new Date().toLocaleTimeString();
-      if (this.hasAttribute('seconds')) {
-        // seconds are not required by default
-      } else {
-        timeNow = timeNow.slice(0, 5);
-      }
-      p.textContent = timeNow;
-    }, 1000);
+    this.intervalID = window.setInterval(this.update.bind(this), 1000);
   }
 
+  disconnectedCallback() {
+    this.intervalID = window.clearInterval(this.intervalID);
+  }
 }
 
-customElements.define('my-clock', Clock);
+customElements.define('digital-clock', DigitalClock);

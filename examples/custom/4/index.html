@@ -1,8 +1,38 @@
 <!doctype html>
-<title>Custom Element Example 4</title>
+<title>Ex4 Connected Callback</title>
 <script type=module src="clock/clock.js"></script>
 
-<h1>Custom Element Example 4</h1>
+<h1>Custom Element Ex4</h1>
+<h2>Lifecycle Callback methods</h2>
 
-<p>This sentence includes (right here: <my-clock></my-clock>) a live and working clock that is completely encapsulated within a web component.  The web component is defined in a separate file that can be included in any page.  The clock appears red because it has it's own stylesheet that is defined as part of the component.</p>
-<p>This second clocks has seconds too... <my-clock seconds />)
+<p>
+  This clock at the end of this page updates every second, but it <em>only</em> updates
+  because it's currently connected to this document.  It's good practice not to be doing
+  unnecessary work, and this clock knows when it is connected and disconnected thanks to
+  two standard functions that we have implemented.  They are
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#using_the_lifecycle_callbacks">
+    <code>connectedCallback</code> and <code>disconnectedCallback</code></a>.
+  The browser calls these functions for us whenever our element is added to or removed
+  from a document.
+
+<p>To see this working, inspect this page and paste the following into the console:
+
+<pre>
+const clock = document.querySelector("digital-clock");
+clock.remove();
+clock;
+</pre>
+
+<p>
+  Open the make element up in the console and you'll see the time that it was removed
+  from the document.  If you re-add it to the document using the following code&hellip;
+
+<pre>document.body.append(clock);</pre>
+
+<p>
+  &hellip then the time will briefly appear as it was before it was removed from the
+  page (and then the new interval timer will kick-in and update it to the correct time.
+</p>
+
+<digital-clock></digital-clock>
+
