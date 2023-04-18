@@ -1,7 +1,11 @@
 <!doctype html>
-<title>Custom Element Example 5</title>
-<script type=module src="twobuttons/twobuttons.js"></script>
+<title>Ex4 Attributes</title>
+<script type=module src="clock/clock.js"></script>
 
-<h1>Custom Element Example 5</h1>
+<h1>Custom Element Ex5</h1>
+<h2>Using Attributes</h2>
 
-<p>Parts of this <two-buttons>...there will be two buttons here...</two-buttons> custom element is clickable.  When clicked a different style is applied and thus the appearance changes.</p>
+<p>This example includes the use of the attribute <code>seconds</code>.  If it's present, seconds are shown.  If not, they are hidden.
+
+<p>This clocks has the seconds attribute&hellip; <digital-clock seconds />
+<p>This clocks has no seconds attribute&hellip; <digital-clock/>
