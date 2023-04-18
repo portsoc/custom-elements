@@ -1,7 +1,24 @@
 <!doctype html>
-<title>Custom Element Example 3</title>
+<title>Ex3 Style</title>
 <script type=module src="clock/clock.js"></script>
 
-<h1>Custom Element Example 3</h1>
+<h1>Custom Element Ex3</h1>
+<h2>Styling Shadow DOM</h2>
 
-<p>This sentence includes (right here: <my-clock></my-clock>) a live and working clock that is completely encapsulated within a web component.  The web component is defined in a separate file that can be included in any page.  the clock appears red because it has it's own stylesheet that is defined as part of the component.</p>
+<p>
+  In this example we extend our <code>&lt;digital-clock&gt;</code>
+  custom element to use an external stylesheet.
+
+<p>
+  The time now is <digital-clock></digital-clock>.
+
+<p>The stylesheet uses the <code>:host</code> pseudo selector to
+  apply styles to the &lt;digital-clock&gt; element (because it's
+  the 'host' of the Shadow DOM.
+
+<p>No part of the page outside the custom element is affected by
+  its stylesheet.  The styles are completely encapsulated.
+
+<p>We use <code>import.meta.resolve</code> to torn a relative name
+  for the stylesheet into a URL based on the URL of the module that
+  is importing it. that

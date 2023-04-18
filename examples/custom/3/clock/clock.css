@@ -1,4 +1,4 @@
-span {
+:host {
     font-family: monospace;
     color: red;
 }
