@@ -1,26 +1,30 @@
 <!doctype html>
-<title>Custom Element Example 1</title>
+<title>Ex1 Digital Clock</title>
 
 <script>
-  class Clock extends HTMLElement {
-    constructor() {
-      super();
+class DigitalClock extends HTMLElement {
+  constructor() {
+    super();
 
-      const shadow = this.attachShadow({ mode: 'closed' });
+    const shadow = this.attachShadow({ mode: 'closed' });
+    shadow.textContent = '00:00:00';
 
-      const span = document.createElement('span');
-      shadow.appendChild(span);
-
-      window.setInterval(() => {
-        span.textContent = new Date().toLocaleTimeString();
-      }, 1000);
-
-    }
+    window.setInterval(() => {
+      shadow.textContent = new Date().toLocaleTimeString();
+    }, 1000);
   }
+}
 
-  customElements.define('my-clock', Clock);
+customElements.define('digital-clock', DigitalClock);
 </script>
 
-<h1>Custom Element Example 1</h1>
+<h1>Custom Element Ex1</h1>
+<h2>A <code>&lt;digital-clock&gt;</code> element</h2>
 
-<p>This sentence includes (right here: <my-clock></my-clock>) a live and working clock that is completely encapsulated within a web component that is defined in this page.</p>
+<p>
+  In this example we define a <code>&lt;digital-clock&gt;</code>
+  custom element that shows the current time by using an interval
+  timer that updates the text content of the element once per second.
+
+<p>
+  The time now is <digital-clock></digital-clock>.
