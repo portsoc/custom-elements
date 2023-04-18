@@ -1,16 +1,14 @@
-class Clock extends HTMLElement {
+class DigitalClock extends HTMLElement {
   constructor() {
     super();
 
     const shadow = this.attachShadow({ mode: 'closed' });
-
-    const p = document.createElement('span');
-    shadow.append(p);
+    shadow.textContent = '00:00:00';
 
     window.setInterval(() => {
-      p.textContent = new Date().toLocaleTimeString();
+      shadow.textContent = new Date().toLocaleTimeString();
     }, 1000);
   }
 }
 
-customElements.define('my-clock', Clock);
+customElements.define('digital-clock', DigitalClock);
