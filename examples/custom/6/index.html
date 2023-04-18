@@ -1,0 +1,38 @@
+<!doctype html>
+<title>Ex6 Events</title>
+<script type=module src="twobuttons/twobuttons.js"></script>
+
+<h1>Custom Element Ex6</h1>
+<h2>Events in Shadow DOM</h2>
+
+<p>
+  This example shows how events can be respodned to in Shadow DOM just as they can be in the normal DOM.
+  The <code>&lt;two-buttons&gt;</code> element contains two buttons.  When the buttons are clicked a report
+  function writes the text of the clicked button to the console.
+
+<p>
+  A fairly simplistic example, but it gets the point
+  across.
+</p>
+
+<two-buttons>
+  ...there will be two buttons here...
+</two-buttons>
+
+<script>
+  /**
+   * Uncomment this code to show how the click events that are responded to on a
+   * per-button level within the shadow dom are here reported as clicks on the
+   * two-butons element.
+   * /
+
+  // document.addEventListener('click', e => {
+  //   console.log(e.target);
+  // });
+
+  /**
+   * In the twobuttons code, adding e.stopPropagation() to the report function
+   * will result in the clicks being handled within the element and not sent-on
+   * outside it to this listener.
+   */
+</script>
