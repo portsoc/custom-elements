@@ -1,6 +1,6 @@
-# ws_components
+# Custom Elememts
 
-Examples from our Web Components lecture.
+An introduction to Templates, Shadow DOM, Web Components and thus: Custom Elements.
 
 ## Templates
 
@@ -47,13 +47,22 @@ In `shadow3.html` we see that we can use templates to populate shadow DOM elemen
 In `shadow4.html` the difference between an open and closed shadow DOM is illustrated.  Two shadow DOMs are created, one open, one closed.  The first can be written to by the JS, setting its innerHTML, the second cannot, and an error is thrown when the write is attemped.
 
 ## Web Components
+* [Custom 0: A `time-created` element](./examples/custom/0/index.html)
 
-### [Custom 1](./examples/custom/1/index.html)
+* [Custom 1: A `hh:mm:ss` `digital-clock` element](./examples/custom/1/index.html)
 
-### [Custom 2](./examples/custom/2/index.html)
+* [Custom 2: A `digital-clock` element defined in its own .js file](./examples/custom/2/index.html)
 
-### [Custom 3](./examples/custom/3/index.html)
+* [Custom 3: Adding an stylesheet to the clock](./examples/custom/3/index.html)
 
-### Custom 4 - See Also…
+* [Custom 4: Using lifecycle callback methods to stop the cock from ticking when not in a document document](./examples/custom/4/index.html)
 
-We've created a more 'useful' example of a web component called [img-melt](http://portsoc.github.io/img-melt/).
+* [Custom 5: Adding a `seconds` attribute to switch between `hh:mm` and `hh:mm:ss`](./examples/custom/5/index.html)
+
+* [Custom 6: A new element with two buttons in it](./examples/custom/6/index.html)
+
+* [Custom 7: A new improved `pre` element called `copyable-pre` that includes a working copy-to-clipboard button](./examples/custom/7/index.html)
+
+* [Custom 8: An analog ticking clock that uses SVG to draw the clock face](./examples/custom/8/index.html)
+
+* [Custom 99: Using a canvas to create a new kind of `img` element](http://portsoc.github.io/img-melt/).
