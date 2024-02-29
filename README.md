@@ -4,6 +4,12 @@ An introduction to Templates, Shadow DOM, Web Components and thus: Custom Elemen
 
 ## Templates
 
+### [Template 0](./examples/templates/template0.html)
+
+In `template0.html` we define a web page that includes a template.  The template is cloned into a variable called `cloned`.
+
+The user is prompted to use the console to manipulate the contents of the cloned template and then append it to the page.
+
 ### [Template 1](./examples/templates/template1.html)
 
 In `template1.html` we define a web page with three parts: a button `b1`, an empty `main` element, and a template identified as `t1`.

@@ -28,7 +28,7 @@
   });
 
   b2.addEventListener("click", e => {
-    const cloned = t1.content.cloneNode(true);
+    const cloned = t2.content.cloneNode(true);
     const updateThis = cloned.querySelector("em");
     updateThis.textContent = new Date().toLocaleTimeString();
     main.append(cloned);
