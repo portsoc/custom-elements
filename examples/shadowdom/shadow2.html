@@ -21,15 +21,19 @@
 </main>
 
 <script>
-  const b1 = document.querySelector("#b1");
-  const ex = document.querySelector("#example");
-  const opts = { mode: "closed" };
-
-  b1.addEventListener("click", () => {
+  function replaceTextUsingShadowDOM() {
+    const ex = document.querySelector("#example");
+    const opts = { mode: "closed" };
     const shadow = ex.attachShadow(opts);
     shadow.innerHTML = `
       <style>p { font-weight: bold; color: red; };</style>
       <p>I part of a shadow DOM.</p>
       <p>My style does not affect the rest of the document</p>`;
-  });
+  }
+
+  const b1 = document.querySelector("#b1");
+  b1.addEventListener("click", replaceTextUsingShadowDOM);
 </script>
+
+
+

@@ -27,15 +27,14 @@
 </template>
 
 <script>
-
-  const b1 = document.querySelector("#b1");
-  const ex = document.querySelector("#example");
-  const opts = { mode: "closed" };
-
-  b1.addEventListener("click", () => {
+  function attachShadowAndUseTemplate() {
+    const ex = document.querySelector("#example");
+    const opts = { mode: "closed" };
     const shadow = ex.attachShadow(opts);
     const cloned = t1.content.cloneNode(true);
     shadow.append(cloned);
+  }
 
-});
+  const b1 = document.querySelector("#b1");
+  b1.addEventListener("click", attachShadowAndUseTemplate);
 </script>
