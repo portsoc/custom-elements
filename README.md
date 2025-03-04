@@ -61,7 +61,7 @@ In `shadow4.html` the difference between an open and closed shadow DOM is illust
 
 * [Custom 3: Adding an stylesheet to the clock](./examples/custom/3/index.html)
 
-* [Custom 4: Using lifecycle callback methods to stop the cock from ticking when not in a document document](./examples/custom/4/index.html)
+* [Custom 4: Using lifecycle callback methods to stop the clock from ticking when not in a document document](./examples/custom/4/index.html)
 
 * [Custom 5: Adding a `seconds` attribute to switch between `hh:mm` and `hh:mm:ss`](./examples/custom/5/index.html)
 
