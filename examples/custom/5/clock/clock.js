@@ -24,6 +24,8 @@ export class DigitalClock extends HTMLElement {
     this.span.textContent = timeNow;
   }
 
+  // Why do we 'bind' 'this' to 'update'?
+  // See: https://developer.mozilla.org/en-US/docs/Web/API/setInterval#the_this_problem
   connectedCallback() {
     this.intervalID = window.setInterval(this.update.bind(this), 1000);
   }
