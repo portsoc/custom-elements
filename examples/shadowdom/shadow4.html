@@ -33,7 +33,8 @@
 
   // prepareShadow();
 
-  ex1.shadowRoot.innerHTML += "<p>This is added to the open Shadow  DOM.</p>";
+  // until the shadow doms are prepared, elem.shadowRoot is null - so this bit errors
+  ex1.shadowRoot.innerHTML += "<p>This is added to the open Shadow DOM.</p>";
   ex2.shadowRoot.innerHTML += "<p>This update won't happen.</p>";
 
 </script>
