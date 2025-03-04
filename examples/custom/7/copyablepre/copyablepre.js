@@ -17,16 +17,17 @@ export class CopyablePre extends HTMLElement {
 
     this.button = document.createElement('button');
     this.button.textContent = '📋';
-    this.button.addEventListener('click', this.copy.bind(this));
+    this.button.addEventListener('click', this.copy);
 
     shadow.append(link, this.pre, this.button);
   }
 
   copy() {
-    navigator.clipboard.writeText(this.pre.textContent);
-    this.button.textContent = 'Copied! ✅';
+    const text = this.previousElementSibling.textContent;
+    navigator.clipboard.writeText(text);
+    this.textContent = 'Copied! ✅';
     setTimeout(() => {
-      this.button.textContent = '📋';
+      this.textContent = '📋';
     }, 3000);
   }
 }
