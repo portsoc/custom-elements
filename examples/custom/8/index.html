@@ -3,9 +3,16 @@
 <script type=module src="analog/clock.js"></script>
 
 <style>
+  analog-clock {
+    width: 5rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
   .special {
     color: red;
-}
+  }
+
 </style>
 
 <h1>Custom Element Ex8</h1>
@@ -13,9 +20,9 @@
 
 <p>This example use SVG to draw a clock.
 
-<p>This clocks has the seconds attribute&hellip; <analog-clock seconds style="color: blue; height: 2em;" />
+<p>This clock has the seconds attribute&hellip; <analog-clock seconds></analog-clock>
 
-<p>This clocks has no seconds attribute&hellip; <analog-clock/>
+<p>This clock has no seconds attribute&hellip; <analog-clock style="color: blue;"></analog-clock> &hellip; but the colur is set in a style attribute.
 
-<p class="special">This paragraph is extra special <analog-clock seconds></analog-clock> !!!
+<p class="special">This paragraph is extra special because the clock's colour <analog-clock seconds></analog-clock> is inherited from the color of the text (!)
 
