@@ -72,3 +72,8 @@ In `shadow4.html` the difference between an open and closed shadow DOM is illust
 * [Custom 8: An analog ticking clock that uses SVG to draw the clock face](./examples/custom/8/index.html)
 
 * [Custom 99: Using a canvas to create a new kind of `img` element](http://portsoc.github.io/img-melt/).
+
+
+Aside: Soon we may be able to use [Import Atributes](https://github.com/tc39/proposal-import-attributes) which will streamline stylesheet loading a little.
+
+
