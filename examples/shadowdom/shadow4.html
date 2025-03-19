@@ -16,11 +16,13 @@
 
 <script>
 
-  // When this function ends the 'internal' handles on
-  // the two Shadow DOMs are lost.  This simulates how we
-  // might not have access to Shadow DOM created by third
-  // party code.
-  function prepareShadow() {
+  const ex1 = document.querySelector("#example1");
+  const ex2 = document.querySelector("#example2");
+
+  // In this function we have variabels that refer to the
+  // two shadow roots that we create.  When this function
+  // ends those bindings are lost.
+  function prepareShadows() {
     const open = ex1.attachShadow({ mode: "open" });
     const closed = ex2.attachShadow({ mode: "closed" });
 
@@ -28,13 +30,33 @@
     closed.innerHTML = "<p>Closed Shadow DOM, cannot be updated externally.</p>"
   }
 
-  const ex1 = document.querySelector("#example1");
-  const ex2 = document.querySelector("#example2");
 
-  // prepareShadow();
+  // We can access shadow DOM using the shadowRoot property of its parent
+  // element ONLY if it was created with a mode of "open".
+  function reportShadows() {
+    // The open shadow root CAN be accessed from the main document.
+    console.log("Open shadow root:", ex1.shadowRoot);
 
-  // until the shadow doms are prepared, elem.shadowRoot is null - so this bit errors
-  ex1.shadowRoot.innerHTML += "<p>This is added to the open Shadow DOM.</p>";
-  ex2.shadowRoot.innerHTML += "<p>This update won't happen.</p>";
+    // The closed shadow root CANNOT be accessed from the main document.
+    console.log("Closed shadow root:", ex2.shadowRoot);
+  }
+
+  function modifyShadows() {
+    // The open shadow root CAN be accessed from the main document.
+    const open = ex1.shadowRoot;
+    open.innerHTML = "<p>THIS WORKS</p>";
+
+    // The closed shadow root CANNOT be accessed from the main document.
+    const closed = ex2.shadowRoot;
+    closed.innerHTML = "<p>THIS FAILS</p>";
+  }
+
+  // Run this firat as is, and look at the page and console.
+  // Then uncomment prepareShadows() and look again.
+  // Finally uncomment modifySHadows and look again.
+  // prepareShadows();
+  // modifyShadows();
+  reportShadows();
+
 
 </script>

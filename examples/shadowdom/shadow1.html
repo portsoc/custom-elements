@@ -21,15 +21,14 @@
 </main>
 
 <script>
-  function replaceTextUsingShHadowDOM() {
+  function replaceTextUsingShadowDOM() {
     const ex = document.querySelector("#example");
-    const opts = { mode: "closed" };
-    const shadow = ex.attachShadow(opts);
+    const shadow = ex.attachShadow({ mode: "closed" });
     shadow.innerHTML = `
       <p>I am part of a shadow DOM.</p>
       <p>Inspect me to see my closed shadow-root.`;
   }
 
   const b1 = document.querySelector("#b1");
-  b1.addEventListener("click", replaceTextUsingShHadowDOM);
+  b1.addEventListener("click", replaceTextUsingShadowDOM);
 </script>

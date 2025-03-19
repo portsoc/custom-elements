@@ -3,6 +3,7 @@
 <style>
   section   { padding: 0.25rem 1rem; background: #AACCFF; }
   section p { padding: 0.25rem 1rem; background: #FFDDBB; }
+  strong    { color: red; }
 </style>
 
 <h1>Shadow DOM Example 0</h1>
@@ -13,7 +14,7 @@
     <p>It contains paragraphs.</p>
     <p>Those paragraphs are not styled the same the paragraphs in this section.</p>
     <p>Those paragraphs cannot be selected via <code>document.querySelector</code>.</p>
-    <p>Shadow DOM can help encapsulate and modularize HTML.</p>
+    <p>Shadow DOM can help <strong>encapsulate</strong> and <strong>modularize</strong> HTML.</p>
   </section>
 
   <section id="example">
@@ -31,11 +32,16 @@
 
   shadow.innerHTML = `
     <p>I am part of a shadow DOM.</p>
-    <p>Inspect me to see my closed shadow-root.`;
+    <p>Inspect me to see my closed shadow-root.
+    <p>My paragraphs are styled differently to the ones in the main document.</p>
+    <p>My paragraphs are not part of the main document.</p>
+    <p>Notice that the original content of the section is not visible.</p>`;
 
   // List the contents of all paras in the doc.
-  // Those in Shadow DOM will not be present.
+  // Those in Shadow DOM will NOT be present.
   const paras = [...document.querySelectorAll('p')];
-  paras.map( p => console.log(p.textContent));
+  for (const p of paras) {
+    console.log(p.textContent);
+  }
 
 </script>

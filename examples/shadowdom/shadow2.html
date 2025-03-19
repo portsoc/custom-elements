@@ -23,8 +23,7 @@
 <script>
   function replaceTextUsingShadowDOM() {
     const ex = document.querySelector("#example");
-    const opts = { mode: "closed" };
-    const shadow = ex.attachShadow(opts);
+    const shadow = ex.attachShadow({ mode: "closed" });
     shadow.innerHTML = `
       <style>p { font-weight: bold; color: red; };</style>
       <p>I part of a shadow DOM.</p>

@@ -29,8 +29,7 @@
 <script>
   function attachShadowAndUseTemplate() {
     const ex = document.querySelector("#example");
-    const opts = { mode: "closed" };
-    const shadow = ex.attachShadow(opts);
+    const shadow = ex.attachShadow({ mode: "closed" });
     const cloned = t1.content.cloneNode(true);
     shadow.append(cloned);
   }
