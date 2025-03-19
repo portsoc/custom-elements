@@ -14,12 +14,13 @@
 
 <script>
 
-  const b1 = document.querySelector("#b1");
-  const t1 = document.querySelector("#t1");
-
-  b1.addEventListener("click", e => {
+  function exampleTemplateUse() {
+    const t1 = document.querySelector("#t1");
     const cloned = t1.content.cloneNode(true);
     document.body.append(cloned);
-  });
+  }
+
+  const b1 = document.querySelector("#b1");
+  b1.addEventListener("click", exampleTemplateUse);
 
 </script>

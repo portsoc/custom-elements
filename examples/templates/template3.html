@@ -4,8 +4,6 @@
 <button id=b1>Use Template 1</button>
 <button id=b2>Use Template 2</button>
 
-<main></main>
-
 <template id=t1>
   <p>Templates are <em>easy</em> to use.</p>
 </template>
@@ -16,21 +14,23 @@
 
 <script>
 
-  const b1 = document.querySelector("#b1");
-  const b2 = document.querySelector("#b2");
-  const t1 = document.querySelector("#t1");
-  const t2 = document.querySelector("#t2");
-  const main = document.querySelector("main");
-
-  b1.addEventListener("click", e => {
+  function exampleTemplateUse() {
+    const t1 = document.querySelector("#t1");
     const cloned = t1.content.cloneNode(true);
-    main.append(cloned);
-  });
+    document.body.append(cloned);
+  }
 
-  b2.addEventListener("click", e => {
+  function exampleDynamicTemplateUse() {
+    const t2 = document.querySelector("#t2");
     const cloned = t2.content.cloneNode(true);
     const updateThis = cloned.querySelector("em");
     updateThis.textContent = new Date().toLocaleTimeString();
-    main.append(cloned);
-  })
+    document.body.append(cloned);
+  }
+
+  const b1 = document.querySelector("#b1");
+  const b2 = document.querySelector("#b2");
+
+  b1.addEventListener("click", exampleTemplateUse);
+  b2.addEventListener("click", exampleDynamicTemplateUse);
 </script>

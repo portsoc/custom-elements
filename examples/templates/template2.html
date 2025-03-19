@@ -13,13 +13,14 @@
 
 <script>
 
-  const b1 = document.querySelector("#b1");
-  const t1 = document.querySelector("#t1");
-
-  b1.addEventListener("click", e => {
+  function exampleDynamicTemplateUse() {
+    const t1 = document.querySelector("#t1");
     const cloned = t1.content.cloneNode(true);
     const updateThis = cloned.querySelector("em");
     updateThis.textContent = new Date().toLocaleTimeString();
     document.body.append(cloned);
-  })
+  }
+
+  const b1 = document.querySelector("#b1");
+  b1.addEventListener("click", exampleDynamicTemplateUse);
 </script>
